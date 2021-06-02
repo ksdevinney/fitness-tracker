@@ -17,3 +17,21 @@ app.put("/api/workouts/:id", function(req, res){
         res.json(workout)
     })
 })
+
+app.post("/api/workouts", function(req, res) {
+    db.create(req.body)
+    .then(function(workout) {
+        console.log("post route", workout)
+        res.json(workout)
+    })
+})
+
+app.get("/api/workouts", function(req, res) {
+    db.find().limit(7).sort()
+    .then(function(workout) {
+        console.log("get route", workout)
+        res.json(workout)
+    })
+})
+
+module.exports = app;
