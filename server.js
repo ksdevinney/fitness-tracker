@@ -12,7 +12,7 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-mongoose.connect("mongoDB://localhost/fitness-tracker");
+mongoose.connect("mongodb://localhost/fitness-tracker");
 
 app.use(require("./routes/apiroutes.js"));
 
