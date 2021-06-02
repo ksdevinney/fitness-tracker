@@ -26,8 +26,8 @@ app.post("/api/workouts", function(req, res) {
     })
 })
 
-app.get("/api/workouts", function(req, res) {
-    db.find().limit(7).sort()
+app.get("/api/workouts/range", function(req, res) {
+    db.find().limit(7)
     .then(function(workout) {
         console.log("get route", workout)
         res.json(workout)
