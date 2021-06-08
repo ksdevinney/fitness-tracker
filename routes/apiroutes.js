@@ -27,6 +27,15 @@ app.post("/api/workouts", function(req, res) {
 })
 
 app.get("/api/workouts/range", function(req, res) {
+    db.aggregate([
+        {
+            $addFields: {
+                totalDuration: {
+                    $sum: '$exercises.duration',
+                },
+            },
+        },
+    ])
     db.find().limit(7)
     .then(function(workout) {
         console.log("get route", workout)
